@@ -12,25 +12,25 @@ pipeline {
 
         stage('Compile') {
             steps {
-                bat 'javac TestFactorial.java'
+                bat '"C:\\Program Files\\Java\\jdk-17\\bin\\javac.exe" TestFactorial.java'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'java TestFactorial'
+                bat '"C:\\Program Files\\Java\\jdk-17\\bin\\java.exe" TestFactorial'
             }
         }
 
         stage('Run') {
             steps {
-                bat 'java TestFactorial'
+                bat '"C:\\Program Files\\Java\\jdk-17\\bin\\java.exe" TestFactorial'
             }
         }
 
         stage('Package JAR') {
             steps {
-                bat 'jar cfe TestFactorial.jar TestFactorial TestFactorial.class'
+                bat '"C:\\Program Files\\Java\\jdk-17\\bin\\jar.exe" cfe TestFactorial.jar TestFactorial TestFactorial.class'
             }
         }
     }
