@@ -1,16 +1,24 @@
 public class TestFactorial {
 
-    public static int factorial(int n) {
-        int result = 1;
+    public static int calculate(int n) {
+        int fact = 1;
 
         for (int i = 1; i <= n; i++) {
-            result = result * i;
+            fact = fact * i;
         }
 
-        return result;
+        return fact;
     }
 
     public static void main(String[] args) {
-        System.out.println("Factorial of 5 = " + factorial(5));
+
+        int num = 5;
+
+        if (num < 0) {
+            System.out.println("Factorial is not defined for negative integers");
+        } else {
+            int result = calculate(num);
+            System.out.println("Factorial of " + num + " = " + result);
+        }
     }
 }
