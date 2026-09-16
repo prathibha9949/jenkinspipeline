@@ -9,13 +9,13 @@ pipeline {
                 echo "Checking out code"
 
                 git branch: 'main',
-                    url: 'https://github.com/prathibha9949/jenkins.git'
+                    url: 'https://github.com/prathibha9949/jenkinspipeline.git'
             }
         }
 
         stage('Compile') {
             steps {
-                echo "Compile"
+                echo "Compiling Java program"
 
                 bat '"C:\\Program Files\\Java\\jdk-17\\bin\\javac.exe" TestFactorial.java'
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo "Test"
+                echo "Testing Java program"
 
                 bat '"C:\\Program Files\\Java\\jdk-17\\bin\\java.exe" TestFactorial'
             }
@@ -31,7 +31,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                echo "Run"
+                echo "Running Java program"
 
                 bat '"C:\\Program Files\\Java\\jdk-17\\bin\\java.exe" TestFactorial'
             }
@@ -39,7 +39,7 @@ pipeline {
 
         stage('Package JAR') {
             steps {
-                echo "Creating JAR"
+                echo "Creating JAR file"
 
                 bat '"C:\\Program Files\\Java\\jdk-17\\bin\\jar.exe" cfe TestFactorial.jar TestFactorial TestFactorial.class'
             }
@@ -47,7 +47,6 @@ pipeline {
     }
 
     post {
-
         success {
             echo "Build, test, run and JAR creation successful"
         }
